@@ -4,3 +4,4 @@ const user = {
     email: 'aj.peltz@gmail.com',
     password: 'password',
 };
+
