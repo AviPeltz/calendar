@@ -1,6 +1,7 @@
 "use client";
 import Image from 'next/image'
 import NavLinks from './ui/dashboard/nav-link'
+import SideNav from './ui/dashboard/sidenav';
 
 export default function Page() {
   return (
