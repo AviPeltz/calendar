@@ -1,4 +1,8 @@
 import { IoToday } from "react-icons/io5";
+import { MdCalendarMonth } from "react-icons/md";
+import { BsCalendar4Week } from "react-icons/bs";
+import { GrPlan } from "react-icons/gr";
+import { RxDashboard } from "react-icons/rx";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
@@ -7,22 +11,22 @@ const links = [
     {
         name: 'Dashboard', 
         href: '/dashboard',
-        icon: IoToday,
+        icon: RxDashboard,
     },
     {
         name: 'Weekly',
         href: '/weekly',
-        icon: IoToday,
+        icon: BsCalendar4Week,
     },
     {
         name: 'Monthly',
         href: '/monthly',
-        icon: IoToday,
+        icon: MdCalendarMonth,
     },
     {
         name: 'Annual',
         href: '/annual',
-        icon: IoToday,
+        icon: GrPlan,
     },
 ];
 
