@@ -9,8 +9,48 @@ import { Button } from "@/components/ui/button"
 import { PopoverTrigger, PopoverContent, Popover } from "@/components/ui/popover"
 import { Calendar } from "@/components/ui/calendar"
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
+import { useState } from 'react';
+
+const plantData = [{
+  plantId: '01-1-C',
+  type: 'type1',
+  date: '2021-08-01',
+  leaves: 1,
+  leafSurfaceAreaList: [1.4]
+}, {
+  plantId: '02-1-C',
+  type: 'type2',
+  date: '2021-08-01',
+  leaves: 2,
+  leafSurfaceAreaList: [1.54, 2.32]
+}, {
+  plantId: '03-1-C',
+  type: 'type3',
+  date: '2021-08-01',
+  leaves: 3,
+  leafSurfaceAreaList: [2.54, 5.32, 8.9]
+}, {
+  plantId: '04-1-C',
+  type: 'type4',
+  date: '2021-08-02',
+  leaves: 3,
+  leafSurfaceAreaList: [2.57, 5.5, 9.0]
+},
+{
+  plantId: '05-1-C',
+  type: 'type4',
+  date: '2021-08-02',
+  leaves: 3,
+  leafSurfaceAreaList: [2.57, 5.5, 9.0]
+}];
+
 
 export function DataPortal() {
+  const [day, setDay] = useState(new Date());
+  function handleDateClick(DatePickerSingleProps){
+    //setDay(DayPickerSingleProps.onSelect())
+  }
+
   return (
     <div className="grid gap-8">
       <Card>
@@ -24,11 +64,7 @@ export function DataPortal() {
               <SelectValue placeholder="Select the Plant" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="type1">01-1-C</SelectItem>
-              <SelectItem value="type2">02-1-C</SelectItem>
-              <SelectItem value="type3">03-1-C</SelectItem>
-              <SelectItem value="type4">04-1-C</SelectItem>
-              <SelectItem value="type5">05-1-C</SelectItem>
+              {plantData.map(plant =>  <SelectItem key={plant.plantId} value={plant.type}>{plant.plantId}</SelectItem>)}
             </SelectContent>
           </Select>
         </CardContent>
@@ -47,7 +83,7 @@ export function DataPortal() {
               </Button>
             </PopoverTrigger>
             <PopoverContent align="start" className="w-auto p-0">
-              <Calendar initialFocus mode="single" />
+              <Calendar initialFocus mode="single" onSelect={handleDateClick}/>
             </PopoverContent>
           </Popover>
         </CardContent>
@@ -61,7 +97,7 @@ export function DataPortal() {
           <form className="grid gap-4">
             <div className="space-y-2">
               <Label htmlFor="name">Number of Leaves</Label>
-              <Input id="name" placeholder="Enter your name" />
+              <Input id="name" placeholder="Enter Number of Leaves" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="name">Email</Label>
