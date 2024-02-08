@@ -10,7 +10,7 @@ import clsx from 'clsx';
 const links = [
     {
         name: 'Dashboard', 
-        href: '/dashboard',
+        href: '/',
         icon: RxDashboard,
     },
     {
@@ -37,7 +37,7 @@ export default function NavLinks() {
         {links.map((link) => {
             const LinkIcon = link.icon;
             return (
-            <div className="p-1">
+            <div key={link.name} className="p-1">
             <Link
                 key={link.name}
                 href={link.href}
@@ -50,7 +50,7 @@ export default function NavLinks() {
                 )}
             >
                 <LinkIcon className="w-6" />
-                <p className="hidden md:block">{link.name}</p>
+                <p key={link.name} className="hidden md:block">{link.name}</p>
             </Link>
             </div>
             );
