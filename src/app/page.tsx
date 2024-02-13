@@ -8,7 +8,8 @@ import { AlternativeLabelingView } from '@/components/alternative-labeling-view'
 
 export default function Page() {
   return (
-    //<LabelingView />
+    <>
+    {/*<LabelingView />*/}
 
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center"> 
@@ -19,5 +20,6 @@ export default function Page() {
         
       </div>
     </main>
+    </>
   );
 }

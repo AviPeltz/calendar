@@ -33,7 +33,7 @@ const links = [
 export default function NavLinks() {
     const pathname = usePathname();
     return(
-        <div className="flex">
+        <div className="flex flex-row">
         {links.map((link) => {
             const LinkIcon = link.icon;
             return (

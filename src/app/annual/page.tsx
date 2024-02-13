@@ -1,6 +1,7 @@
 
 "use client"
 import { useState } from 'react';
+import NavLinks from '../ui/dashboard/nav-link';
 
 const months = ["January", "February", "March", "April",
                  "May", "June", "July", "August", "September",
@@ -85,9 +86,12 @@ const monthItems = [{
     tasks: null,
 }];
 
-function Month(){
-    
-}
+/**
+ * 
+ * 
+ * 
+ */
+
 
 
 export default function Calendar() {
@@ -97,57 +101,27 @@ export default function Calendar() {
     const CurrentMonth = d.getMonth();
     const CurrentDay = d.getDate();
     let cellStyle = "hover:bg-blue-100 hover hover:text-blue-500 active:border-blue-500 bg-slate-50 text-center p-2 border rounded-md";
-    
-    function handleMonthClick(e){
-        const newMonth = {
-            id: e.target.id,
-            name: e.target.name,
-            isSelected: !e.target.isSelected,
-            tasks: e.target.tasks
-        };
-        setMonths([
-            ...months,
-            months[e.target.id] = newMonth
-        ]); 
-    }
-    function dropdown(name, selected){
-        if(selected){
-            return (
-                <div>
-                    <h1>Tasks for {name}</h1>
-                    <ul>
-                        <li>Task 1</li>
-                        <li>Task 2</li>
-                        <li>Task 3</li>
-                    </ul>
-                </div>
-            )
-        }
-        else{
-            return null;
-        }
-    }
 
 
-    return (
-        <div>
-            <h1 className="text-lg font-medium p-2">
-                <span className="font-bold">Annual View: </span>The Year of {CurrentYear} 
-            </h1>
-            <div className="container w-full">
+    return(
+        <div className="flex flex-col min-h-screen w-full">
+            <header className="flex h-16 items-center justify-center border-b px-4  md:px-6">
+                <NavLinks />
+            </header>
+            <main>
                 <div>
-                    {
-                    months.map(month =>  
-                    <div key={month.id} className={cellStyle}
-                        onClick={handleMonthClick}>
-                        <h1 className="font-semibold">
-                            {month.name}
-                        </h1>
-                        {dropdown(month.name, month.isSelected)}
-                    </div>)
-                    }
+                    <h1 className="text-xl font-medium p-2">
+                        <span className="font-bold">Annual View: </span>The Year of {CurrentYear} 
+                    </h1>
                 </div>
-            </div>
+                <div className='grid lg:grid-cols-10 md:grid-cols-8 sm:grid-cols-5 gap-2 m-1 border rounded p-2'>
+                    {monthItems.map(month => (
+                      <div key={month.id} className="border rounded min-w-fit">
+                        <h2 className="justify-center text-bold mx-4">{month.name}</h2>
+                      </div>  
+                    ))}
+                </div>
+            </main>
         </div>
     );
 }

@@ -6,6 +6,10 @@ const months = [{
     tasks: [],
 }]
 const tasks = [];
+
 export default function Month(){
+    return(
+        <div></div>
+    );
 
 }
